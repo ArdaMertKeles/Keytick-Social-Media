@@ -1,0 +1,213 @@
+.homePage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1em;
+  background-color: #E9EBEE;
+}
+.homePage .main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.header {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  background: rgb(92, 0, 92);
+  padding: 5px 0 5px 0;
+}
+.header .leftContainer {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+  width: 35%;
+}
+.header .leftContainer img {
+  width: 4em;
+  height: 3em;
+  border-radius: 10%;
+}
+.header .leftContainer .searchDiv {
+  position: relative;
+  width: 100%;
+}
+.header .leftContainer .searchDiv input {
+  width: 100%;
+  padding: 6px;
+  font-size: 1.15em;
+  border-radius: 8px;
+  outline: none;
+  border: 1px solid gray;
+}
+.header .leftContainer .searchDiv label {
+  position: absolute;
+  right: -5px;
+  top: 15%;
+}
+.header .leftContainer .searchDiv label svg {
+  color: rgb(70, 70, 70);
+}
+.header .rightContainer {
+  display: flex;
+  align-items: center;
+}
+.header .rightContainer .divider {
+  border: 1px solid rgb(61, 0, 61);
+  height: 1.5em;
+  margin: 0 2px 0 2px;
+}
+.header .rightContainer .profileBox {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 0.7em 4px 0.7em;
+  border-radius: 6px;
+  transition: 0.2s ease;
+  cursor: pointer;
+}
+.header .rightContainer .profileBox:hover {
+  transition: 0.2s ease;
+  background-color: rgb(70, 0, 70);
+}
+.header .rightContainer .profileBox img {
+  width: 2em;
+  border-radius: 50%;
+}
+.header .rightContainer .profileBox p {
+  color: #ffffff;
+}
+.header .rightContainer .link {
+  color: #ffffff;
+  text-decoration: none;
+  padding: 10px 0.7em 10px 0.7em;
+  border-radius: 6px;
+  transition: 0.2s ease;
+}
+.header .rightContainer .link:hover {
+  transition: 0.2s ease;
+  background-color: rgb(70, 0, 70);
+}
+.header .rightContainer svg {
+  color: rgb(8, 8, 8);
+  padding: 8px 5px 8px 5px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.header .rightContainer svg:hover {
+  transition: 0.2s ease;
+  color: rgb(70, 70, 70);
+}
+
+.createPostContainer {
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+}
+.createPostContainer .headerContainer {
+  background-color: #F5F6F7;
+  padding: 8px;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  border-bottom: 1px solid #c5c5c5;
+}
+.createPostContainer .headerContainer p {
+  color: rgb(41, 41, 41);
+  font-weight: 700;
+}
+.createPostContainer .textContainer {
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+  padding: 1em 0 1em 0;
+  border-bottom: 1px solid #c5c5c5;
+  background: #ffffff;
+}
+.createPostContainer .textContainer img {
+  width: 2.5em;
+  border-radius: 50%;
+}
+.createPostContainer .textContainer textarea {
+  display: flex;
+  padding: 8px 0 0 8px;
+  width: 85%;
+  height: 100%;
+  resize: none;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  outline: none;
+}
+.createPostContainer .textContainer textarea:focus {
+  border-color: rgb(99, 99, 99);
+}
+.createPostContainer .btnContainer {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 4px 8px 4px;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  background: #ffffff;
+}
+.createPostContainer .btnContainer .attachments {
+  display: flex;
+  gap: 1em;
+}
+.createPostContainer .btnContainer .attachments button, .createPostContainer .btnContainer .attachments .photoBtn {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background-color: #ececec;
+  border: none;
+  border-radius: 2em;
+  padding: 4px 12px 4px 12px;
+  transition: 0.2s ease;
+  color: rgb(41, 41, 41);
+  font-size: 0.9em;
+  font-weight: 700;
+  cursor: pointer;
+}
+.createPostContainer .btnContainer .attachments button:hover, .createPostContainer .btnContainer .attachments .photoBtn:hover {
+  background-color: #d2d2d2;
+  transition: 0.2s ease;
+}
+.createPostContainer .btnContainer .attachments button svg, .createPostContainer .btnContainer .attachments .photoBtn svg {
+  color: rgb(94, 209, 121);
+}
+.createPostContainer .btnContainer .attachments input {
+  display: none;
+}
+.createPostContainer .btnContainer .attachments .emoji svg {
+  color: rgb(237, 217, 102);
+}
+.createPostContainer .btnContainer .attachments .emoji .emojiPicker {
+  position: absolute;
+}
+.createPostContainer .btnContainer .postBtn {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  height: 100%;
+  background-color: #964696;
+  border: none;
+  border-radius: 0.25em;
+  padding: 4px 12px 4px 12px;
+  transition: 0.2s ease;
+  color: #ffffff;
+  font-weight: 700;
+  cursor: pointer;
+}
+.createPostContainer .btnContainer .postBtn:hover {
+  background-color: #7f377f;
+  transition: 0.2s ease;
+}
+.createPostContainer .btnContainer .postBtn:disabled {
+  background-color: #c5c5c5;
+  cursor: not-allowed;
+}
+.createPostContainer .btnContainer .postBtn svg {
+  color: rgb(255, 255, 255);
+}/*# sourceMappingURL=styles.css.map */

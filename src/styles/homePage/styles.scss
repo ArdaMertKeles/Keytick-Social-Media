@@ -1,0 +1,225 @@
+
+// Color Variables
+$white: #ffffff;
+$backgroundWhite: #E9EBEE;
+
+// Home Page
+.homePage{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1em;
+    background-color: $backgroundWhite;
+    .main{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+}
+
+// Header Component
+.header{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    background: rgb(92, 0, 92);
+    padding: 5px 0 5px 0;
+    .leftContainer{
+        display: flex;
+        align-items: center;
+        gap: 1em;
+        width: 35%;
+        img{
+            width: 4em;
+            height: 3em;
+            border-radius: 10%;
+        }
+        .searchDiv{
+            position: relative;
+            width: 100%;
+            input{
+                width: 100%;
+                padding: 6px;
+                font-size: 1.15em;
+                border-radius: 8px;
+                outline: none;
+                border: 1px solid gray;
+            }
+            label{
+            position: absolute;
+            right: -5px;
+            top: 15%;
+                svg{
+                color: rgb(70, 70, 70);
+                }
+            }
+        }
+    }
+    .rightContainer{
+        display: flex;
+        align-items: center;
+        .divider{
+            border: 1px solid rgb(61, 0, 61);
+            height: 1.5em;
+            margin: 0 2px 0 2px;
+        }
+        .profileBox{
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            padding: 4px 0.7em 4px 0.7em;
+            border-radius: 6px;
+            transition: 0.2s ease;
+            cursor: pointer;
+            &:hover{
+            transition: 0.2s ease;
+            background-color: rgb(70, 0, 70);
+            }
+            img{
+                width: 2em;
+                border-radius: 50%;
+            }
+            p{
+                color: $white;
+            }
+        }
+        .link{
+            color: $white;
+            text-decoration: none;
+            padding: 10px 0.7em 10px 0.7em;
+            border-radius: 6px;
+                transition: 0.2s ease;
+                &:hover{
+                transition: 0.2s ease;
+                background-color: rgb(70, 0, 70);
+                }
+        }
+        svg{
+            color: rgb(8, 8, 8);
+            padding: 8px 5px 8px 5px;
+            border-radius: 6px;
+            cursor: pointer;
+            &:hover{
+                transition: 0.2s ease;
+                // background-color: rgb(70, 0, 70);
+                color: rgb(70, 70, 70);
+                }
+        }
+    }
+}
+
+// CreatePost Component
+.createPostContainer{
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    .headerContainer{
+        background-color: #F5F6F7;
+        padding: 8px;
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
+        border-bottom: 1px solid #c5c5c5;
+        p{
+            color: rgb(41, 41, 41);
+            font-weight: 700;
+        }
+    }
+    .textContainer{
+        display: flex;
+        justify-content: space-evenly;
+        width: 100%;
+        padding: 1em 0 1em 0;
+        border-bottom: 1px solid #c5c5c5;
+        background: $white;
+        img{
+            width: 2.5em;
+            border-radius: 50%;
+        }
+        textarea{
+            display: flex;
+            padding: 8px 0 0 8px;
+            width: 85%;
+            height: 100%;
+            resize: none;
+            border: 1px solid transparent;
+            border-radius: 5px;
+            outline: none;
+            &:focus{
+                border-color: rgb(99, 99, 99);
+            }
+        }
+    }
+    .btnContainer{
+        display: flex;
+        justify-content: space-between;
+        padding: 8px 4px 8px 4px;
+        border-bottom-left-radius: 8px;
+        border-bottom-right-radius: 8px;
+        background: $white;
+        .attachments{
+            display: flex;
+            gap: 1em;
+            button, .photoBtn{
+                display: flex;
+                align-items: center;
+                gap: 5px;
+                // height: 100%;
+                background-color: #ececec;
+                border: none;
+                border-radius: 2em;
+                padding: 4px 12px 4px 12px;
+                transition: 0.2s ease;
+                color: rgb(41, 41, 41);
+                font-size: 0.9em;
+                font-weight: 700;
+                cursor: pointer;
+                &:hover{
+                background-color: #d2d2d2;
+                transition: 0.2s ease;
+                }
+                svg{
+                    color: rgb(94, 209, 121);
+                }
+            }
+            input{
+                display: none;
+            }
+            .emoji{
+                svg{
+                    color: rgb(237, 217, 102);
+                }
+                .emojiPicker{
+                    position: absolute;
+                }
+            }
+        }
+        .postBtn{
+                display: flex;
+                align-items: center;
+                gap: 5px;
+                height: 100%;
+                background-color: #964696;
+                border: none;
+                border-radius: 0.25em;
+                padding: 4px 12px 4px 12px;
+                transition: 0.2s ease;
+                color: $white;
+                font-weight: 700;
+                cursor: pointer;
+                &:hover{
+                background-color: #7f377f;
+                transition: 0.2s ease;
+                }
+                &:disabled{
+                    background-color: #c5c5c5;
+                    cursor: not-allowed;
+                }
+                svg{
+                    color: rgb(255, 255, 255);
+                }
+            }
+    }
+}
