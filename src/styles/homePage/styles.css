@@ -9,6 +9,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 1em;
   width: 100%;
 }
 
@@ -106,7 +107,7 @@
   align-self: center;
   display: flex;
   flex-direction: column;
-  width: 50%;
+  width: 45%;
 }
 .createPostContainer .headerContainer {
   background-color: #F5F6F7;
@@ -210,4 +211,175 @@
 }
 .createPostContainer .btnContainer .postBtn svg {
   color: rgb(255, 255, 255);
+}
+
+.postWrapper {
+  display: flex;
+  flex-direction: column;
+  width: 45%;
+}
+.postWrapper .postContainer {
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+.postWrapper .postContainer .headerContainer {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+  padding: 1em;
+}
+.postWrapper .postContainer .headerContainer img {
+  width: 2.5em;
+  cursor: pointer;
+}
+.postWrapper .postContainer .headerContainer .details {
+  display: flex;
+  flex-direction: column;
+}
+.postWrapper .postContainer .headerContainer .details .nameDetails {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.postWrapper .postContainer .headerContainer .details .nameDetails .username {
+  color: #7f377f;
+  font-weight: 700;
+  cursor: pointer;
+}
+.postWrapper .postContainer .headerContainer .details .nameDetails span {
+  display: flex;
+  align-items: center;
+  color: #6b306b;
+  font-weight: 700;
+}
+.postWrapper .postContainer .headerContainer .details .nameDetails span svg {
+  color: rgb(58, 58, 58);
+}
+.postWrapper .postContainer .headerContainer .details .createdAt {
+  color: rgb(107, 107, 107);
+  font-size: 0.7em;
+}
+.postWrapper .postContainer .contentContainer {
+  display: flex;
+  flex-direction: column;
+  padding: 0 1em 0.6em 1em;
+  border-bottom: 1px solid #c5c5c5;
+  gap: 8px;
+}
+.postWrapper .postContainer .contentContainer img {
+  width: 400px;
+}
+.postWrapper .postContainer .btnContainer {
+  display: flex;
+  gap: 1em;
+  padding: 0.6em 1em 0.6em 1em;
+}
+.postWrapper .postContainer .btnContainer button, .postWrapper .postContainer .btnContainer label {
+  border: none;
+  display: flex;
+  align-items: center;
+  background-color: transparent;
+  gap: 6px;
+  font-weight: 600;
+  font-size: 0.85em;
+  color: gray;
+  transition: 0.2s ease;
+  cursor: pointer;
+}
+.postWrapper .postContainer .btnContainer button svg, .postWrapper .postContainer .btnContainer label svg {
+  font-size: 1.5em;
+}
+.postWrapper .postContainer .btnContainer button:hover, .postWrapper .postContainer .btnContainer label:hover {
+  color: black;
+  transition: 0.2s ease;
+}
+.postWrapper .postContainer .btnContainer .like {
+  color: gray;
+}
+.postWrapper .postContainer .btnContainer .liked {
+  color: #6b306b;
+}
+.postWrapper .commentsContainer {
+  background-color: #F5F6F7;
+  padding: 0.6em 1em 0.6em 1em;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+.postWrapper .commentsContainer .likesContainer {
+  display: flex;
+}
+.postWrapper .commentsContainer .likesContainer .likeAmount {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #6b306b;
+  font-size: 0.85em;
+  cursor: pointer;
+}
+.postWrapper .commentsContainer .likesContainer .likeAmount svg {
+  background: #6b306b;
+  color: #ffffff;
+  padding: 3px;
+  font-size: 1.05em;
+  border-radius: 50%;
+}
+.postWrapper .commentsContainer .likesContainer .likeAmount:hover {
+  text-decoration: underline;
+}
+.postWrapper .commentsContainer .comments {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.postWrapper .commentsContainer .comments .commentContainer {
+  background: #EDEFF5;
+  display: flex;
+  gap: 1em;
+  padding: 6px;
+}
+.postWrapper .commentsContainer .comments .commentContainer img {
+  width: 2.5em;
+}
+.postWrapper .commentsContainer .comments .commentContainer .detailContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+.postWrapper .commentsContainer .comments .commentContainer .detailContainer .details {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.postWrapper .commentsContainer .comments .commentContainer .detailContainer .details .username {
+  color: #7f377f;
+  font-weight: 700;
+  cursor: pointer;
+}
+.postWrapper .commentsContainer .comments .commentContainer .detailContainer .details .content {
+  font-size: 0.9em;
+}
+.postWrapper .commentsContainer .comments .commentContainer .detailContainer .createdAt {
+  color: rgb(107, 107, 107);
+  font-size: 0.6em;
+  font-weight: 600;
+}
+.postWrapper .commentsContainer .postComment {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.postWrapper .commentsContainer .postComment img {
+  width: 2.5em;
+}
+.postWrapper .commentsContainer .postComment input {
+  padding: 7px 5px 7px 5px;
+  width: 100%;
+  outline: none;
+  border: 1px solid #c5c5c5;
 }/*# sourceMappingURL=styles.css.map */

@@ -8,7 +8,7 @@ export const Header = ({ logo, userData }) => {
     return (
         <div className='header'>
             <div className='leftContainer'>
-                <img src={logo} alt="" />
+                <img draggable='false' src={logo} alt="" />
                 <div className="searchDiv">
                     <input type="text" id="search" placeholder="Search" className="searchBar" />
                     <label htmlFor="search"><SearchIcon /></label>

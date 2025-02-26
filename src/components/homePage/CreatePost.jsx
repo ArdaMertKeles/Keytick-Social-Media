@@ -43,6 +43,8 @@ export const CreatePost = ({ userData }) => {
     const sharePost = async (userId, content, imageBase64) => {
         try {
           await addDoc(collection(db, "posts"), {
+            username: userData.username,
+            userPicture: userData.profilePicture,
             userId,
             content,
             image: imageBase64,
@@ -50,9 +52,8 @@ export const CreatePost = ({ userData }) => {
             comments: [],
             createdAt: Timestamp.now(),
           });
-          console.log("Post başarıyla paylaşıldı!");
         } catch (error) {
-          console.error("Post paylaşma hatası:", error);
+          console.error(error);
         }
       };
 
