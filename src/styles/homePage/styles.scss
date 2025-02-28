@@ -3,21 +3,27 @@
 $white: #ffffff;
 $backgroundWhite: #E9EBEE;
 
+html{
+    background-color: $backgroundWhite;
+}
+
 // Home Page
 .homePage{
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 1em;
-    background-color: $backgroundWhite;
+    height: 100vh;
     .main{
         display: flex;
         flex-direction: column;
         align-items: center;
         gap: 1em;
         width: 100%;
+        height: inherit;
     }
 }
+
 
 // Header Component
 .header{
@@ -236,6 +242,7 @@ $backgroundWhite: #E9EBEE;
         border-top-left-radius: 8px;
         border-top-right-radius: 8px;
         .headerContainer{
+            position: relative;
             display: flex;
             align-items: center;
             gap: 1em;
@@ -270,6 +277,19 @@ $backgroundWhite: #E9EBEE;
                     color: rgb(107, 107, 107);
                     font-size: 0.7em;
                 }
+            }
+            .deleteBtn{
+                position: absolute;
+                background: transparent;
+                right: 10px;
+                border: none;
+                color: rgb(243, 57, 57);
+                transition: 0.2s ease;
+                cursor: pointer;
+                &:hover{
+                    transition: 0.2s ease;
+                    color: rgb(158, 23, 23);
+            }
             }
         }
         .contentContainer{
@@ -329,16 +349,12 @@ $backgroundWhite: #E9EBEE;
                 gap: 6px;
                 color: #6b306b;
                 font-size: 0.85em;
-                cursor: pointer;
                 svg{
                     background: #6b306b;
                     color: $white;
                     padding: 3px;
                     font-size: 1.05em;
                     border-radius: 50%;
-                }
-                &:hover{
-                    text-decoration: underline;
                 }
             }
         }
@@ -350,6 +366,7 @@ $backgroundWhite: #E9EBEE;
                 background: #EDEFF5;
                 display: flex;
                 gap: 1em;
+                position: relative;
                 padding: 6px;
                 img{
                     width: 2.5em;
@@ -377,6 +394,18 @@ $backgroundWhite: #E9EBEE;
                         font-weight: 600;
                     }
                 }
+                .deleteBtn{
+                    position: absolute;
+                    right: 10px;
+                    border: none;
+                    color: rgb(243, 57, 57);
+                    transition: 0.2s ease;
+                    cursor: pointer;
+                    &:hover{
+                        transition: 0.2s ease;
+                        color: rgb(158, 23, 23);
+                }
+                }
             }
         }
         .postComment{
@@ -395,3 +424,63 @@ $backgroundWhite: #E9EBEE;
         }
     }
 }
+
+@media only screen and (max-width: 1000px) {
+    .createPostContainer{
+        width: 65%;
+    }
+    .postWrapper{
+        width: 65%;
+    }
+  }
+
+  @media only screen and (max-width: 650px) {
+    .createPostContainer{
+        width: 85%;
+    }
+    .postWrapper{
+        width: 85%;
+    }
+  }
+
+  @media only screen and (max-width: 580px) {
+    .header{
+        justify-content: center;
+        .leftContainer{
+            width: 20%;
+            .searchDiv{
+                display: none;
+            }
+        }
+    }
+  }
+  @media only screen and (max-width: 450px) {
+    .header{
+        .leftContainer{
+            width: 12%;
+            img{
+                width: 3.5em;
+                height: 2.5em;
+            }
+        }
+    }
+  }
+
+  @media only screen and (max-width: 400px) {
+    .header{
+        font-size: 0.8em;
+        .leftContainer{
+            width: 9%;
+            img{
+                width: 3em;
+                height: 2em;
+            }
+        }
+    }
+    .createPostContainer{
+        width: 95%;
+    }
+    .postWrapper{
+        width: 95%;
+    }
+  }

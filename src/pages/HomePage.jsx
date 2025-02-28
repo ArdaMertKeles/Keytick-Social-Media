@@ -1,13 +1,13 @@
 import { useNavigate } from 'react-router-dom'
 import logo from '../assets/img/keytick-high-resolution-logo2.png'
-import { Header } from '../components/homePage/Header'
+import { Header } from '../components/Header'
 import '../styles/homePage/styles.css'
 import { useEffect, useState } from 'react'
 import { onAuthStateChanged } from 'firebase/auth'
 import { auth, db } from "../config/firebase";
 import { getDoc, doc, collection, query, orderBy, getDocs } from 'firebase/firestore'
 import { CreatePost } from '../components/homePage/CreatePost'
-import { Post } from '../components/homePage/Post'
+import { Post } from '../components/Post'
 
 export const HomePage = () => {
 
@@ -36,11 +36,7 @@ export const HomePage = () => {
             if (!uid) return;
             try {
                 const userDoc = await getDoc(doc(db, "users", uid));
-                if (userDoc.exists()) {
                     setUserData(userDoc.data());
-                } else {
-                    console.log("No such document!");
-                }
             } catch (error) {
                 console.error("Error fetching user data:", error);
             }
@@ -52,15 +48,20 @@ export const HomePage = () => {
     const fetchHomePosts = async () => {
         const q = query(collection(db, "posts"), orderBy("createdAt", "desc"));
         const querySnapshot = await getDocs(q);
-      
+
         return querySnapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
-      };
+    };
+
+    const getPosts = async () => {
+        const postList = await fetchHomePosts();
+        setPosts(postList);
+    };
 
     useEffect(() => {
         const getPosts = async () => {
             const postList = await fetchHomePosts();
             setPosts(postList);
-          };
+        };
 
         const getUserFriends = async () => {
             if (!user) return;
@@ -75,14 +76,19 @@ export const HomePage = () => {
         getUserFriends()
     }, [user])
 
-
-    return (
+    if(!userData){
+        return(
+            <div className="pageLoading">
+                <div className="loader"></div>
+            </div>
+        )
+    } else return (
         <div className='homePage'>
             <Header logo={logo} userData={userData} />
             <div className="main">
-                <CreatePost userData={userData} />
+                <CreatePost userData={userData} getPosts={getPosts} />
                 {posts.map((post) => (
-                    <Post key={post.id} post={post} friends={friends} userData={userData} />
+                    <Post key={post.id} getPosts={getPosts} post={post} friends={friends} userData={userData} />
                 ))}
             </div>
         </div>

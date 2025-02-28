@@ -6,7 +6,7 @@ import { useState } from 'react';
 import { addDoc, collection, Timestamp } from 'firebase/firestore';
 import { db } from '../../config/firebase';
 
-export const CreatePost = ({ userData }) => {
+export const CreatePost = ({ userData, getPosts }) => {
 
     const [emojiPicker, setEmojiPicker] = useState(false)
     const [disabled, setDisabled] = useState(false)
@@ -52,6 +52,7 @@ export const CreatePost = ({ userData }) => {
             comments: [],
             createdAt: Timestamp.now(),
           });
+          getPosts()
         } catch (error) {
           console.error(error);
         }

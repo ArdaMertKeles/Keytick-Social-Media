@@ -1,9 +1,13 @@
+html {
+  background-color: #E9EBEE;
+}
+
 .homePage {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 1em;
-  background-color: #E9EBEE;
+  height: 100vh;
 }
 .homePage .main {
   display: flex;
@@ -11,6 +15,7 @@
   align-items: center;
   gap: 1em;
   width: 100%;
+  height: inherit;
 }
 
 .header {
@@ -226,6 +231,7 @@
   border-top-right-radius: 8px;
 }
 .postWrapper .postContainer .headerContainer {
+  position: relative;
   display: flex;
   align-items: center;
   gap: 1em;
@@ -261,6 +267,19 @@
 .postWrapper .postContainer .headerContainer .details .createdAt {
   color: rgb(107, 107, 107);
   font-size: 0.7em;
+}
+.postWrapper .postContainer .headerContainer .deleteBtn {
+  position: absolute;
+  background: transparent;
+  right: 10px;
+  border: none;
+  color: rgb(243, 57, 57);
+  transition: 0.2s ease;
+  cursor: pointer;
+}
+.postWrapper .postContainer .headerContainer .deleteBtn:hover {
+  transition: 0.2s ease;
+  color: rgb(158, 23, 23);
 }
 .postWrapper .postContainer .contentContainer {
   display: flex;
@@ -320,7 +339,6 @@
   gap: 6px;
   color: #6b306b;
   font-size: 0.85em;
-  cursor: pointer;
 }
 .postWrapper .commentsContainer .likesContainer .likeAmount svg {
   background: #6b306b;
@@ -328,9 +346,6 @@
   padding: 3px;
   font-size: 1.05em;
   border-radius: 50%;
-}
-.postWrapper .commentsContainer .likesContainer .likeAmount:hover {
-  text-decoration: underline;
 }
 .postWrapper .commentsContainer .comments {
   display: flex;
@@ -341,6 +356,7 @@
   background: #EDEFF5;
   display: flex;
   gap: 1em;
+  position: relative;
   padding: 6px;
 }
 .postWrapper .commentsContainer .comments .commentContainer img {
@@ -369,6 +385,18 @@
   font-size: 0.6em;
   font-weight: 600;
 }
+.postWrapper .commentsContainer .comments .commentContainer .deleteBtn {
+  position: absolute;
+  right: 10px;
+  border: none;
+  color: rgb(243, 57, 57);
+  transition: 0.2s ease;
+  cursor: pointer;
+}
+.postWrapper .commentsContainer .comments .commentContainer .deleteBtn:hover {
+  transition: 0.2s ease;
+  color: rgb(158, 23, 23);
+}
 .postWrapper .commentsContainer .postComment {
   display: flex;
   align-items: center;
@@ -382,4 +410,59 @@
   width: 100%;
   outline: none;
   border: 1px solid #c5c5c5;
+}
+
+@media only screen and (max-width: 1000px) {
+  .createPostContainer {
+    width: 65%;
+  }
+  .postWrapper {
+    width: 65%;
+  }
+}
+@media only screen and (max-width: 650px) {
+  .createPostContainer {
+    width: 85%;
+  }
+  .postWrapper {
+    width: 85%;
+  }
+}
+@media only screen and (max-width: 580px) {
+  .header {
+    justify-content: center;
+  }
+  .header .leftContainer {
+    width: 20%;
+  }
+  .header .leftContainer .searchDiv {
+    display: none;
+  }
+}
+@media only screen and (max-width: 450px) {
+  .header .leftContainer {
+    width: 12%;
+  }
+  .header .leftContainer img {
+    width: 3.5em;
+    height: 2.5em;
+  }
+}
+@media only screen and (max-width: 400px) {
+  .header {
+    font-size: 0.8em;
+  }
+  .header .leftContainer {
+    width: 9%;
+  }
+  .header .leftContainer img {
+    width: 3em;
+    height: 2em;
+  }
+  .createPostContainer {
+    width: 95%;
+  }
+  .postWrapper {
+    width: 95%;
+  }
 }/*# sourceMappingURL=styles.css.map */
