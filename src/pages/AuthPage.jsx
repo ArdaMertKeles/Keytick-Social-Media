@@ -82,12 +82,7 @@ export const AuthPage = () => {
         e.preventDefault()
         try {
             await signInWithEmailAndPassword(auth, email, password)
-            const user = auth.currentUser;
-            if (user.displayName) {
-                navigate("/main-lobby")
-            } else {
-                navigate("/user-info")
-            }
+            navigate('/home')
         } catch (err) {
             setErrorMsg(getErrorMessage(err.code));
             setTimeout(() => {

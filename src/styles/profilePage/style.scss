@@ -1,0 +1,115 @@
+.profilePageWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+
+    .main {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        gap: 1em;
+        .noPosts{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 0 12px 0;
+            gap: 8px;
+            font-size: 2em;
+            background-color: #ffffff;
+            width: 45%;
+            border-radius: 8px;
+            svg{
+                font-size: 1.2em;
+            }
+        }
+    }
+}
+
+// Profile Section Component
+.profileSection {
+    display: flex;
+    width: 45%;
+    background-color: #ffffff;
+    border-radius: 8px;
+
+    img {
+        width: 17%;
+        height: 17%;
+        padding: 1em;
+    }
+
+    .detailContainer {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 100%;
+        padding: 1em;
+
+        .details {
+            display: flex;
+            flex-direction: column;
+            .nameDetails {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                width: 100%;
+                .username {
+                    color: #7f377f;
+                    font-weight: 700;
+                }
+
+                button {
+                    display: flex;
+                    align-items: center;
+                    gap: 6px;
+                    background: transparent;
+                    border: none;
+                    padding: 2px;
+                    font-weight: 600;
+                    border-radius: 8px;
+                    background-color: #ececec;
+                    transition: 0.2s ease;
+                    cursor: pointer;
+                    &:hover{
+                        background-color: #d2d2d2;
+                        transition: 0.2s ease;
+                    }
+                }
+            }
+
+            .bio {
+                max-width: 50%;
+            }
+        }
+
+        .switchBtns {
+            align-self: center;
+            display: flex;
+            gap: 3em;
+
+            input[type="radio"] {
+                display: none;
+            }
+
+            label span {
+                border-radius: 5px;
+                font-weight: 600;
+                color: #333;
+                transition: all 0.3s;
+                cursor: pointer;
+            }
+
+            input[type="radio"]:checked+span {
+                color: rgb(92, 0, 92);
+                text-decoration: underline;
+                font-weight: 700;
+                font-weight: bold;
+            }
+
+            label span:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+}
