@@ -31,10 +31,27 @@
   background-color: #ffffff;
   border-radius: 8px;
 }
-.profileSection img {
-  width: 17%;
-  height: 17%;
+.profileSection label {
   padding: 1em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.profileSection label img {
+  width: 6em;
+  height: 6em;
+}
+.profileSection label p {
+  font-size: 0.6em;
+}
+.profileSection #photo {
+  display: none;
+}
+.profileSection .clickable {
+  cursor: pointer;
+}
+.profileSection .notClickable {
+  cursor: default;
 }
 .profileSection .detailContainer {
   display: flex;
@@ -76,11 +93,32 @@
 }
 .profileSection .detailContainer .details .bio {
   max-width: 50%;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.profileSection .detailContainer .details .bio svg {
+  color: gray;
+  transition: 0.2s ease;
+  cursor: pointer;
+}
+.profileSection .detailContainer .details .bio svg:hover {
+  color: #333;
+  transition: 0.2s ease;
+}
+.profileSection .detailContainer .details input {
+  border: 1px solid black;
+  border-radius: 7px;
+  padding: 4px;
+  font-size: 1em;
+  max-width: 45%;
 }
 .profileSection .detailContainer .switchBtns {
+  width: 70%;
   align-self: center;
   display: flex;
-  gap: 3em;
+  align-items: flex-end;
+  justify-content: space-between;
 }
 .profileSection .detailContainer .switchBtns input[type=radio] {
   display: none;

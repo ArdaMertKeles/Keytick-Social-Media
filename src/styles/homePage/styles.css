@@ -81,6 +81,7 @@ html {
 }
 .header .rightContainer .profileBox img {
   width: 2em;
+  height: 2em;
   border-radius: 50%;
 }
 .header .rightContainer .profileBox p {
@@ -134,7 +135,8 @@ html {
   background: #ffffff;
 }
 .createPostContainer .textContainer img {
-  width: 2.5em;
+  width: 3em;
+  height: 3em;
   border-radius: 50%;
 }
 .createPostContainer .textContainer textarea {
@@ -361,6 +363,7 @@ html {
 }
 .postWrapper .commentsContainer .comments .commentContainer img {
   width: 2.5em;
+  height: 2.5em;
 }
 .postWrapper .commentsContainer .comments .commentContainer .detailContainer {
   display: flex;
@@ -403,7 +406,8 @@ html {
   gap: 12px;
 }
 .postWrapper .commentsContainer .postComment img {
-  width: 2.5em;
+  width: 3em;
+  height: 3em;
 }
 .postWrapper .commentsContainer .postComment input {
   padding: 7px 5px 7px 5px;
