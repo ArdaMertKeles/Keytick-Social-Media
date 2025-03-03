@@ -1,5 +1,6 @@
 import PersonAddIcon from '@mui/icons-material/PersonAdd';
 import EditIcon from '@mui/icons-material/Edit';
+import CheckIcon from '@mui/icons-material/Check';
 import { doc, updateDoc } from "firebase/firestore";
 import { db } from '../../config/firebase';
 import { useState } from 'react';
@@ -37,8 +38,7 @@ export const ProfileSection = ({ profileData, friends, uid, setParamSelection })
         }
     };
 
-    const updateBio = async (e) => {
-        e.preventDefault()
+    const updateBio = async () => {
         if (bioContent !== '') {
             const userRef = doc(db, "users", uid);
             await updateDoc(userRef, {
@@ -62,17 +62,13 @@ export const ProfileSection = ({ profileData, friends, uid, setParamSelection })
                         <AddFriendBtn />
                     </div>
                     {bio && <div className="bio">{profileData.bio ? bioContent : "You don't have a bio yet"} <EditIcon onClick={() => setBio(false)} /></div>}
-                    <form onSubmit={updateBio}>
-                        {!bio && (
-                            <input
-                                type="text"
-                                onChange={(e) => setBioContent(e.target.value)}
-                                placeholder="Write your bio"
-                                value={bioContent}
-                            />
-                        )}
-                        <button type="submit" hidden>Submit</button>
-                    </form>
+                    {!bio && (
+                        <div className='changeBio'>
+                            <input type="text" onChange={(e) => setBioContent(e.target.value)} maxLength={46} placeholder="Write your bio" value={bioContent} />
+                            <CheckIcon onClick={updateBio} />
+                        </div>
+                    )}
+                    <button type="submit" hidden>Submit</button>
                 </div>
                 <div className="switchBtns">
                     <label onClick={() => setParamSelection('timeline')}>

@@ -106,12 +106,30 @@
   color: #333;
   transition: 0.2s ease;
 }
-.profileSection .detailContainer .details input {
+.profileSection .detailContainer .details .changeBio {
+  position: relative;
+  width: 45%;
+}
+.profileSection .detailContainer .details .changeBio input {
   border: 1px solid black;
   border-radius: 7px;
   padding: 4px;
   font-size: 1em;
-  max-width: 45%;
+}
+.profileSection .detailContainer .details .changeBio svg {
+  position: absolute;
+  right: 14px;
+  top: 3px;
+  color: rgb(42, 138, 42);
+  background: rgb(78, 225, 78);
+  border-radius: 6px;
+  transition: 0.2s ease;
+  cursor: pointer;
+}
+.profileSection .detailContainer .details .changeBio svg:hover {
+  color: rgb(21, 91, 21);
+  background: rgb(29, 154, 29);
+  transition: 0.2s ease;
 }
 .profileSection .detailContainer .switchBtns {
   width: 70%;
@@ -138,4 +156,77 @@
 }
 .profileSection .detailContainer .switchBtns label span:hover {
   text-decoration: underline;
+}
+
+.aboutWrapper {
+  display: flex;
+  flex-direction: column;
+  width: 45%;
+  background-color: #ffffff;
+  border-radius: 8px;
+}
+.aboutWrapper .createdAt {
+  display: flex;
+  gap: 6px;
+  padding: 8px;
+}
+.aboutWrapper .createdAt p:nth-child(1) {
+  color: #7f377f;
+  font-weight: 700;
+}
+.aboutWrapper .aboutContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 8px;
+  width: 100%;
+  height: -moz-max-content;
+  height: max-content;
+}
+.aboutWrapper .aboutContainer .about {
+  color: #7f377f;
+  font-weight: 700;
+}
+.aboutWrapper .aboutContainer .aboutContent {
+  max-width: 50%;
+  display: flex;
+  gap: 4px;
+  height: auto;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+.aboutWrapper .aboutContainer .aboutContent svg {
+  color: gray;
+  transition: 0.2s ease;
+  cursor: pointer;
+}
+.aboutWrapper .aboutContainer .aboutContent svg:hover {
+  color: #333;
+  transition: 0.2s ease;
+}
+.aboutWrapper .aboutContainer .changeAbout {
+  position: relative;
+  width: 50%;
+}
+.aboutWrapper .aboutContainer .changeAbout input {
+  width: 99%;
+  border: 1px solid black;
+  border-radius: 7px;
+  padding: 4px 32px 4px 4px;
+  font-size: 1em;
+}
+.aboutWrapper .aboutContainer .changeAbout svg {
+  position: absolute;
+  right: -30px;
+  top: 3px;
+  color: rgb(42, 138, 42);
+  background: rgb(78, 225, 78);
+  border-radius: 6px;
+  transition: 0.2s ease;
+  cursor: pointer;
+}
+.aboutWrapper .aboutContainer .changeAbout svg:hover {
+  color: rgb(21, 91, 21);
+  background: rgb(29, 154, 29);
+  transition: 0.2s ease;
 }/*# sourceMappingURL=style.css.map */
