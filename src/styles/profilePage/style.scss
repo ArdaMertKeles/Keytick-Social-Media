@@ -76,6 +76,23 @@
                     font-weight: 700;
                 }
 
+                .logOutBtn{
+                    background: transparent;
+                    border: none;
+                    padding: 2px;
+                    font-weight: 600;
+                    border-radius: 6px;
+                    background-color: rgb(198, 50, 50);
+                    color: #ffc0c0;
+                    padding: 3px;
+                    transition: 0.2s ease;
+                    cursor: pointer;
+                    &:hover{
+                        background-color: rgb(158, 33, 33);
+                        transition: 0.2s ease;
+                    }
+                }
+
                 button {
                     display: flex;
                     align-items: center;
@@ -99,6 +116,10 @@
                     &:hover{
                         background-color: #83df69;
                     }
+                }
+                .friendStatus{
+                    color: rgb(55, 138, 55);
+                    font-weight: 700;
                 }
             }
 
@@ -250,4 +271,101 @@
             }
         }
 }
+}
+
+.friendsWrapper{
+    width: 45%;
+    .friendContainer{
+        border-radius: 8px;
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+    .profileSection{
+        width: 65%;
+    }
+    .aboutWrapper{
+        width: 65%;
+    }
+    .friendsWrapper{
+        width: 65%;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    .profileSection{
+        width: 80%;
+    }
+    .aboutWrapper{
+        width: 80%;
+    }
+    .friendsWrapper{
+        width: 80%;
+    }
+}
+
+@media only screen and (max-width: 620px) {
+    .profileSection{
+        width: 90%;
+    }
+    .aboutWrapper{
+        width: 90%;
+    }
+    .friendsWrapper{
+        width: 90%;
+    }
+}
+
+@media only screen and (max-width: 550px) {
+    .profileSection{
+        .detailContainer{
+            .switchBtns{
+                width: 90%;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 470px) {
+    .profileSection{
+        .detailContainer{
+            .switchBtns{
+                justify-content: space-evenly;
+                width: 100%;
+                font-size: 0.9em;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 430px) {
+    .profileSection{
+        .detailContainer{
+            .switchBtns{
+                font-size: 0.8em;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    .profileSection{
+        width: 95%;
+        .detailContainer{
+            .switchBtns{
+                width: 100%;
+                font-size: 0.7em;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 350px) {
+    .profileSection{
+        .detailContainer{
+            .switchBtns{
+                font-size: 0.65em;
+            }
+        }
+    }
 }

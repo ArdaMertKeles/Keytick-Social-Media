@@ -10,6 +10,7 @@ import '../styles/profilePage/style.css'
 import { ProfileSection } from "../components/profilePage/ProfileSection"
 import { Post } from "../components/Post"
 import { About } from "../components/profilePage/About";
+import { Friend } from "../components/Friend";
 
 export const ProfilePage = () => {
 
@@ -114,11 +115,16 @@ export const ProfilePage = () => {
         <div className="profilePageWrapper">
             {userData && <Header logo={logo} userData={userData} />}
             <div className="main">
-                {profileData && <ProfileSection userData={userData} fetchProfileData={fetchProfileData} setParamSelection={setParamSelection} profileData={profileData} friends={friends} uid={uid} />}
+                {profileData && <ProfileSection userData={userData} fetchProfileData={fetchProfileData} setParamSelection={setParamSelection} profileData={profileData} uid={uid} />}
                 {paramSelection === 'timeline' && userPosts.map((post) => (
                     <Post key={post.id} getPosts={fetchUserPosts} post={post} friends={friends} userData={userData} />
                 ))}
                 {paramSelection === 'about' && <About userData={userData} uid={uid} />}
+                {paramSelection === 'friends' && <div className="friendsWrapper">
+                    {friends.map((friend) => (
+                        <Friend friend={friend} />
+                    ))}
+                </div>}
                 {paramSelection === 'timeline' && userPosts.length === 0 && <div className="noPosts">This user has not shared any post yet <BrowserNotSupportedIcon /></div>}
             </div>
         </div>

@@ -7,6 +7,7 @@ import { getDoc, doc } from "firebase/firestore";
 import logo from '../assets/img/keytick-high-resolution-logo2.png'
 import '../styles/friendsPage/style.css'
 import { FriendRequest } from "../components/friendsPage/FriendRequest";
+import { Friend } from "../components/Friend";
 
 export const FriendsPage = () => {
 
@@ -101,6 +102,11 @@ export const FriendsPage = () => {
                 </div>
                 <div className="friendsContainer">
                     <p className="headerText">Friends</p>
+                    <div className="friends">
+                        {friends.map((friend) => (
+                            <Friend friend={friend} />
+                        ))}
+                    </div>
                 </div>
             </div>
         </div>

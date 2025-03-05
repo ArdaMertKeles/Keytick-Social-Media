@@ -2,9 +2,12 @@ import CheckIcon from '@mui/icons-material/Check';
 import ClearIcon from '@mui/icons-material/Clear';
 import { doc, updateDoc, arrayUnion, arrayRemove } from 'firebase/firestore';
 import { db } from '../../config/firebase';
+import { useNavigate } from 'react-router-dom';
 
 export const FriendRequest = ({ request, uid, userData, getUserFriends, getUserFriendRequests }) => {
     
+    const navigate = useNavigate()
+
     const acceptRequest = async () => {
         const userRef = doc(db, "users", uid);
         const requestUserRef = doc(db, "users", request.uid)
@@ -40,8 +43,8 @@ export const FriendRequest = ({ request, uid, userData, getUserFriends, getUserF
     return (
         <div className="friendRequestContainer">
             <div className="details">
-                <img src={request.profilePicture} alt="" />
-                <p className="name">{request.username}</p>
+                <img onClick={() => navigate(`/profile/${userData.uid}`)} src={request.profilePicture} alt="" />
+                <p onClick={() => navigate(`/profile/${userData.uid}`)} className="name">{request.username}</p>
             </div>
             <div className="btns">
                 <CheckIcon onClick={acceptRequest} className='acceptBtn' />

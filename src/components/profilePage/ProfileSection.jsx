@@ -2,10 +2,10 @@ import PersonAddIcon from '@mui/icons-material/PersonAdd';
 import EditIcon from '@mui/icons-material/Edit';
 import CheckIcon from '@mui/icons-material/Check';
 import { arrayUnion, arrayRemove, doc, updateDoc } from "firebase/firestore";
-import { db } from '../../config/firebase';
+import { db, auth } from '../../config/firebase';
 import { useState } from 'react';
 
-export const ProfileSection = ({ profileData, friends, uid, setParamSelection, userData, fetchProfileData }) => {
+export const ProfileSection = ({ profileData, uid, setParamSelection, userData, fetchProfileData }) => {
 
     const [bioContent, setBioContent] = useState(profileData.bio)
     const [bio, setBio] = useState(true)
@@ -46,16 +46,31 @@ export const ProfileSection = ({ profileData, friends, uid, setParamSelection, u
 
     const AddFriendBtn = () => {
         if (uid !== profileData.uid) {
-            const requestExists = profileData.friendRequests?.some(
-                (req) => req.uid === uid
-            );
-            if (requestExists === true) {
-                return <button onClick={addFriend} className="requestSent">Request sent <PersonAddIcon /></button>
-            } else if (requestExists === false) {
-                return <button onClick={addFriend} className="addFriend">Add friend <PersonAddIcon /></button>
+            const isFriend = profileData.friends?.some((friend) => friend.uid === uid);
+            
+            if (isFriend) {
+                return <span className="friendStatus">Your friend</span>;
+            } else {
+                const requestExists = profileData.friendRequests?.some(
+                    (req) => req.uid === uid
+                );
+    
+                if (requestExists) {
+                    return (
+                        <button onClick={addFriend} className="requestSent">
+                            Request sent <PersonAddIcon />
+                        </button>
+                    );
+                } else {
+                    return (
+                        <button onClick={addFriend} className="addFriend">
+                            Add friend <PersonAddIcon />
+                        </button>
+                    );
+                }
             }
-        } else return
-    }
+        } else return null;
+    };
 
     const convertToBase64 = (file) => {
         return new Promise((resolve, reject) => {
@@ -86,6 +101,11 @@ export const ProfileSection = ({ profileData, friends, uid, setParamSelection, u
             setBio(true)
         }
     }
+
+    const logOut = () => {
+        auth.signOut()
+    }
+
     return (
         <div className="profileSection">
             <label className={profileData.uid === uid ? 'clickable' : 'notClickable'} htmlFor="photo">
@@ -98,6 +118,7 @@ export const ProfileSection = ({ profileData, friends, uid, setParamSelection, u
                     <div className="nameDetails">
                         <div className="username">{profileData.username}</div>
                         <AddFriendBtn />
+                        {uid === profileData.uid && <button className='logOutBtn' onClick={logOut}>Log Out</button>}
                     </div>
                     {bio && <div className="bio">{profileData.bio !== '' ? bioContent : "You don't have a bio yet"} <EditIcon onClick={() => setBio(false)} /></div>}
                     {!bio && (

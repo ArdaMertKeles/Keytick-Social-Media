@@ -60,10 +60,15 @@
 .friendRequestContainer .details img {
   width: 2.5em;
   height: 2.5em;
+  cursor: pointer;
 }
 .friendRequestContainer .details p {
   color: #7f377f;
   font-weight: 700;
+  cursor: pointer;
+}
+.friendRequestContainer .details p:hover {
+  text-decoration: underline;
 }
 .friendRequestContainer .btns {
   display: flex;
@@ -92,4 +97,40 @@
   color: rgb(142, 18, 18);
   background: rgb(170, 45, 45);
   transition: 0.2s ease;
+}
+
+@media only screen and (max-width: 1000px) {
+  .main {
+    width: 70%;
+  }
+}
+@media only screen and (max-width: 850px) {
+  .main {
+    width: 85%;
+  }
+}
+@media only screen and (max-width: 750px) {
+  .main {
+    width: 95%;
+  }
+}
+@media only screen and (max-width: 700px) {
+  .main .details p {
+    font-size: 0.9em;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .main {
+    flex-direction: column;
+    align-items: center;
+  }
+  .main .friendRequestsContainer {
+    width: 90%;
+  }
+  .main .friendsContainer {
+    width: 90%;
+  }
+  .main .details p {
+    font-size: 1em;
+  }
 }/*# sourceMappingURL=style.css.map */

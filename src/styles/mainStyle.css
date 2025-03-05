@@ -31,3 +31,29 @@
         animation: l5 1s infinite;
     }
 }
+
+/* Friend Component */
+.friendContainer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px;
+    background-color: #ffffff;
+    .details{
+        display: flex;
+        gap: 6px;
+        img{
+            width: 2.5em;
+            height: 2.5em;
+            cursor: pointer;
+        }
+        p{
+            color: #7f377f;
+            font-weight: 700;
+            cursor: pointer;
+            &:hover{
+                text-decoration: underline;
+            }
+        }
+    }
+}
