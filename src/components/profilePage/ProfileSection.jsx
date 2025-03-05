@@ -1,19 +1,59 @@
 import PersonAddIcon from '@mui/icons-material/PersonAdd';
 import EditIcon from '@mui/icons-material/Edit';
 import CheckIcon from '@mui/icons-material/Check';
-import { doc, updateDoc } from "firebase/firestore";
+import { arrayUnion, arrayRemove, doc, updateDoc } from "firebase/firestore";
 import { db } from '../../config/firebase';
 import { useState } from 'react';
 
-export const ProfileSection = ({ profileData, friends, uid, setParamSelection }) => {
+export const ProfileSection = ({ profileData, friends, uid, setParamSelection, userData, fetchProfileData }) => {
 
-    const [profileImg, setProfileImg] = useState(profileData.profilePicture)
     const [bioContent, setBioContent] = useState(profileData.bio)
     const [bio, setBio] = useState(true)
 
+    const addFriend = async () => {
+        const userRef = doc(db, "users", profileData.uid);
+        const requestExists = profileData.friendRequests?.some(
+            (req) => req.uid === uid
+        );
+        if (requestExists === true) {
+            try {
+                await updateDoc(userRef, {
+                    friendRequests: arrayRemove({
+                        uid: uid,
+                        username: userData.username,
+                        profilePicture: userData.profilePicture
+                    }),
+                });
+                fetchProfileData(profileData.uid)
+            } catch (error) {
+                console.error(error)
+            }
+        } else if (requestExists === false) {
+            try {
+                await updateDoc(userRef, {
+                    friendRequests: arrayUnion({
+                        uid: uid,
+                        username: userData.username,
+                        profilePicture: userData.profilePicture
+                    }),
+                });
+                fetchProfileData(profileData.uid)
+            } catch (error) {
+                console.error(error)
+            }
+        }
+    }
+
     const AddFriendBtn = () => {
         if (uid !== profileData.uid) {
-            return <button className="addFriend">Add friend <PersonAddIcon /></button>
+            const requestExists = profileData.friendRequests?.some(
+                (req) => req.uid === uid
+            );
+            if (requestExists === true) {
+                return <button onClick={addFriend} className="requestSent">Request sent <PersonAddIcon /></button>
+            } else if (requestExists === false) {
+                return <button onClick={addFriend} className="addFriend">Add friend <PersonAddIcon /></button>
+            }
         } else return
     }
 
@@ -34,7 +74,6 @@ export const ProfileSection = ({ profileData, friends, uid, setParamSelection })
             await updateDoc(userRef, {
                 profilePicture: base64Image
             });
-            setProfileImg(base64Image)
         }
     };
 
@@ -47,11 +86,10 @@ export const ProfileSection = ({ profileData, friends, uid, setParamSelection })
             setBio(true)
         }
     }
-
     return (
         <div className="profileSection">
             <label className={profileData.uid === uid ? 'clickable' : 'notClickable'} htmlFor="photo">
-                <img src={profileImg} alt="" />
+                <img src={profileData.profilePicture} alt="" />
                 {profileData.uid === uid && <p>Change your photo</p>}
             </label>
             {profileData.uid === uid && <input type="file" accept="image/*" onChange={handleFileChange} name="photo" id="photo" />}
@@ -61,7 +99,7 @@ export const ProfileSection = ({ profileData, friends, uid, setParamSelection })
                         <div className="username">{profileData.username}</div>
                         <AddFriendBtn />
                     </div>
-                    {bio && <div className="bio">{profileData.bio ? bioContent : "You don't have a bio yet"} <EditIcon onClick={() => setBio(false)} /></div>}
+                    {bio && <div className="bio">{profileData.bio !== '' ? bioContent : "You don't have a bio yet"} <EditIcon onClick={() => setBio(false)} /></div>}
                     {!bio && (
                         <div className='changeBio'>
                             <input type="text" onChange={(e) => setBioContent(e.target.value)} maxLength={46} placeholder="Write your bio" value={bioContent} />

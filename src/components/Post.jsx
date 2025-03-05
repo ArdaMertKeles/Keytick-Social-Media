@@ -118,13 +118,13 @@ export const Post = ({ post, friends, userData, getPosts }) => {
 
     const deletePost = async () => {
         try {
-          const postRef = doc(db, "posts", post.id);
-          await deleteDoc(postRef);
-          getPosts()
+            const postRef = doc(db, "posts", post.id);
+            await deleteDoc(postRef);
+            getPosts()
         } catch (error) {
-          console.error("Error deleting post:", error);
+            console.error("Error deleting post:", error);
         }
-      };
+    };
 
     return (
         <div className="postWrapper">

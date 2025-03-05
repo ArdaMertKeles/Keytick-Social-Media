@@ -193,6 +193,7 @@ html {
 }
 .createPostContainer .btnContainer .attachments .emoji .emojiPicker {
   position: absolute;
+  z-index: 3;
 }
 .createPostContainer .btnContainer .postBtn {
   display: flex;
@@ -241,6 +242,7 @@ html {
 }
 .postWrapper .postContainer .headerContainer img {
   width: 2.5em;
+  height: 2.5em;
   cursor: pointer;
 }
 .postWrapper .postContainer .headerContainer .details {

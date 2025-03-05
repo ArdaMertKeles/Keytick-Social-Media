@@ -91,6 +91,13 @@
   background-color: #d2d2d2;
   transition: 0.2s ease;
 }
+.profileSection .detailContainer .details .nameDetails .requestSent {
+  background-color: #afeb9f;
+  color: rgb(55, 138, 55);
+}
+.profileSection .detailContainer .details .nameDetails .requestSent:hover {
+  background-color: #83df69;
+}
 .profileSection .detailContainer .details .bio {
   max-width: 50%;
   display: flex;

@@ -27,7 +27,7 @@ export const Header = ({ logo, userData }) => {
                 <div className="divider"></div>
                 <Link className="link">Create</Link>
                 <div className="divider"></div>
-                <GroupIcon />
+                <GroupIcon onClick={() => navigate('/friends')} />
                 <NotificationsIcon />
                 <div className="divider"></div>
                 <HelpIcon />

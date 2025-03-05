@@ -47,6 +47,8 @@ export const AuthPage = () => {
                 email: user.email,
                 profilePicture: 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_640.png',
                 bio: '',
+                about: '',
+                friendRequests: [],
                 friends: [],
                 createdAt: new Date()
             });
@@ -119,7 +121,7 @@ export const AuthPage = () => {
             {isSignUp && <div className="signUpContainer">
                 <p className="tag">Sign Up Keytick</p>
                 <form action="">
-                    <input type="text" required={true} onChange={(e) => setName(e.target.value)} value={name} placeholder="Your name" />
+                    <input type="text" required={true} max={25} onChange={(e) => setName(e.target.value)} value={name} placeholder="Your name" />
                     <input type="email" required={true} onChange={(e) => setEmail(e.target.value)} value={email} placeholder="Your email" />
                     <input type="password" required={true} onChange={(e) => setPassword(e.target.value)} value={password} placeholder="Your password" />
                     {invalidPass && <p className="invalid">Password must be at least 6 characters</p>}

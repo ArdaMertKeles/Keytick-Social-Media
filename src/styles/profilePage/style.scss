@@ -93,6 +93,13 @@
                         transition: 0.2s ease;
                     }
                 }
+                .requestSent{
+                    background-color: #afeb9f;
+                    color: rgb(55, 138, 55);
+                    &:hover{
+                        background-color: #83df69;
+                    }
+                }
             }
 
             .bio {

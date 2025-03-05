@@ -45,7 +45,7 @@ export const ProfilePage = () => {
                 console.error("Error fetching user data:", error);
             }
         };
-        
+
         const getUserFriends = async () => {
             if (!uid) return;
             const userRef = doc(db, "users", uid);
@@ -54,7 +54,7 @@ export const ProfilePage = () => {
                 setFriends(userSnap.data().friends || []);
             }
         };
-    
+
         getUserFriends()
         fetchUserData();
     }, [uid]);
@@ -94,8 +94,18 @@ export const ProfilePage = () => {
         fetchUserPosts(profileUid.profileId)
         fetchProfileData(profileUid.profileId)
     }, [profileUid])
-    if(!userData){
-        return(
+
+    const fetchProfileData = async (userId) => {
+        try {
+            const userDoc = await getDoc(doc(db, "users", userId));
+            setProfileData(userDoc.data());
+        } catch (error) {
+            console.error("Error fetching user data:", error);
+        }
+    }
+
+    if (!userData) {
+        return (
             <div className="pageLoading">
                 <div className="loader"></div>
             </div>
@@ -104,9 +114,9 @@ export const ProfilePage = () => {
         <div className="profilePageWrapper">
             {userData && <Header logo={logo} userData={userData} />}
             <div className="main">
-                {profileData && <ProfileSection setParamSelection={setParamSelection} profileData={profileData} friends={friends} uid={uid} />}
+                {profileData && <ProfileSection userData={userData} fetchProfileData={fetchProfileData} setParamSelection={setParamSelection} profileData={profileData} friends={friends} uid={uid} />}
                 {paramSelection === 'timeline' && userPosts.map((post) => (
-                    <Post key={post.id} getPosts={fetchUserPosts} post={post} friends={friends} userData={userData}/>
+                    <Post key={post.id} getPosts={fetchUserPosts} post={post} friends={friends} userData={userData} />
                 ))}
                 {paramSelection === 'about' && <About userData={userData} uid={uid} />}
                 {paramSelection === 'timeline' && userPosts.length === 0 && <div className="noPosts">This user has not shared any post yet <BrowserNotSupportedIcon /></div>}
