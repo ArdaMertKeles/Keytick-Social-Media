@@ -11,10 +11,11 @@ export const AuthPage = () => {
     const [isSignUp, setIsSignUp] = useState(false)
     const [password, setPassword] = useState()
     const [email, setEmail] = useState()
-    const [name, setName] = useState()
+    const [name, setName] = useState('')
 
     const [forgotPass, setForgotPass] = useState(false)
     const [invalidPass, setInvalidPass] = useState(false)
+    const [invalidName, setInvalidName] = useState(false)
     const [errorMsg, setErrorMsg] = useState('')
 
     const navigate = useNavigate()
@@ -36,6 +37,10 @@ export const AuthPage = () => {
         e.preventDefault();
         if (password.length < 6) {
             setInvalidPass(true);
+            return;
+        }
+        if(name.length <3){
+            setInvalidName(true);
             return;
         }
 
@@ -154,10 +159,11 @@ export const AuthPage = () => {
                     <input type="password" required={true} value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Your password" />
                     <input className="submit" onClick={(e) => signIn(e)} type="submit" value={'Sign In'} />
                     <button type="button" className="login-with-google-btn" onClick={signWithGoogle} >Sign in with Google</button>
-                </form>
+                    {!errorMsg !== '' && <p className="invalid">{errorMsg}</p>}
+                    </form>
                 <div className="container">
                     <p onClick={() => setForgotPass(true)}>Forget your password?</p>
-                    <p onClick={() => { setIsSignUp(true); setEmail(''); setPassword(''); setName('') }}>Sign Up Keytick</p>
+                    <p onClick={() => { setIsSignUp(true); setEmail(''); setPassword(''); setName(''); setInvalidPass(false); setInvalidName(false) }}>Sign Up Keytick</p>
                 </div>
             </div>}
             {isSignUp && !forgotPass && <div className="signUpContainer">
@@ -167,11 +173,12 @@ export const AuthPage = () => {
                     <input type="email" required={true} onChange={(e) => setEmail(e.target.value)} value={email} placeholder="Your email" />
                     <input type="password" required={true} onChange={(e) => setPassword(e.target.value)} value={password} placeholder="Your password" />
                     {invalidPass && <p className="invalid">Password must be at least 6 characters</p>}
+                    {invalidName && <p className="invalid">Name must be at least 3 characters</p>}
                     {!errorMsg !== '' && <p className="invalid">{errorMsg}</p>}
                     <input className="submit isSign" onClick={(e) => signUp(e)} type="submit" value={'Sign Up'} />
                 </form>
                 <div className="container isSign">
-                    <p onClick={() => { setIsSignUp(false); setEmail(''); setPassword(''); setName('') }}>Sign In Keytick</p>
+                    <p onClick={() => { setIsSignUp(false); setEmail(''); setPassword(''); setName(''); setInvalidPass(false); setInvalidName(false) }}>Sign In Keytick</p>
                 </div>
             </div>}
             {forgotPass && <ForgotPassword setForgotPass={setForgotPass} />}

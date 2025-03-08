@@ -120,7 +120,8 @@ export const ProfileSection = ({ profileData, uid, setParamSelection, userData, 
                         <AddFriendBtn />
                         {uid === profileData.uid && <button className='logOutBtn' onClick={logOut}>Log Out</button>}
                     </div>
-                    {bio && <div className="bio">{profileData.bio !== '' ? bioContent : "You don't have a bio yet"} <EditIcon onClick={() => setBio(false)} /></div>}
+                    {bio && uid === profileData.uid && <div className="bio">{profileData.bio !== '' ? bioContent : "You don't have a bio yet"} <EditIcon onClick={() => setBio(false)} /></div>}
+                    {bio && uid !== profileData.uid && <div className="bio">{profileData.bio !== '' ? bioContent : "This user doesn't have a bio yet"} </div>}
                     {!bio && (
                         <div className='changeBio'>
                             <input type="text" onChange={(e) => setBioContent(e.target.value)} maxLength={46} placeholder="Write your bio" value={bioContent} />

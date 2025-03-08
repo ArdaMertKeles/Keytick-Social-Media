@@ -296,7 +296,7 @@ html {
   gap: 8px;
 }
 .postWrapper .postContainer .contentContainer img {
-  width: 400px;
+  width: 50%;
 }
 .postWrapper .postContainer .btnContainer {
   display: flex;
