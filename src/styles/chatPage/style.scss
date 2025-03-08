@@ -1,0 +1,210 @@
+.chatPageWrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1em;
+    .chatWrapper{
+        display: flex;
+        justify-content: center;
+        width: 80%;
+        height: 80vh;
+        gap: 6px;
+    }
+}
+
+// Friends List Component
+.friendsList{
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    background-color: #F5F6F7;
+    width: 22%;
+    height: 100%;
+    border-radius: 8px;
+    overflow: hidden;
+    overflow-y: scroll;
+    .friend{
+        input{
+            display: none;
+        }
+        label{
+            padding: 8px;
+            display: flex;
+            gap: 8px;
+            background-color: #f1eeee;
+            transition: 0.2s ease;
+            cursor: pointer;
+            &:hover{
+                transition: 0.2s ease;
+                background-color: #dbdbdb;
+            }
+            img{
+                padding: 0;
+                width: 3.5em;
+                height: 3.5em;
+            }
+            p{
+                font-size: 0.9em;
+                color: #7f377f;
+                font-weight: 700;
+            }
+        }
+        input[type="radio"]:checked + label {
+            background-color: #d1d1d1;
+        }
+        p{
+            color: #5d0c5d;
+
+        }
+    }
+}
+
+// Chat Window Component
+.chatWindow{
+    display: flex;
+    flex-direction: column;
+    width: 65%;
+    border-radius: 8px;
+    overflow: hidden;
+    .friendDetails{
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        background-color: #F5F6F8;
+        img{
+            padding: 5px;
+            width: 2em;
+            height: 2em;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+        p{
+            font-size: 0.9em;
+            color: #7f377f;
+            font-weight: 700;
+            cursor: pointer;
+        }
+    }
+    .messages{
+        background-color: #FFFFFF;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        overflow-y: scroll;
+        div{
+            border-radius: 8px;
+            min-width: 15%;
+            max-width: 40%;
+            overflow-wrap: break-word;
+            margin: 6px;
+            padding: 6px;
+            .createdAt{
+                color: rgb(208, 208, 208);
+                font-size: 0.5em;
+            }
+        }
+        .sent{
+            align-self: flex-end;
+            background-color: #3543a8;
+            color: #FFFFFF;
+        }
+        .received{
+            align-self: flex-start;
+            background-color: #7f377f;
+            color: #FFFFFF;
+        }
+    }
+    .sendMsg{
+        display: flex;
+        justify-content: center;
+        background-color: #F5F6F8;
+        width: 100%;
+        gap: 6px;
+        input{
+            padding: 6px;
+            border-radius: 8px;
+            width: 85%;
+            outline: none;
+            border: 1px solid gray;
+        }
+        button{
+            width: 14%;
+            outline: none;
+            border: 1px solid gray;
+            border-radius: 8px;
+            background-color: #7f377f;
+            color: #FFFFFF;
+            transition: 0.2s ease;
+            cursor: pointer;
+            &:hover{
+                background-color: #6a126a;
+                transition: 0.2s ease;
+            }
+        }
+    }
+}
+
+.selectChat{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 65%;
+    border-radius: 8px;
+    background-color: #F5F6F8;
+    font-size: 2em;
+    font-weight: 700;
+    color: #5d0c5d;
+}
+
+@media only screen and (max-width: 1000px) {
+    .chatPageWrapper{
+        .chatWrapper{
+            width: 95%;
+            .friendsList{
+                width: 30%;
+            }
+            .chatWindow{
+                width: 70%;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 700px) {
+    .chatPageWrapper{
+        .chatWrapper{
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            width: 100%;
+            height: 90vh;
+            .friendsList{
+                width: 90%;
+                height: 20%;
+                overflow-y: scroll;
+            }
+            .chatWindow{
+                width: 90%;
+                height: 70%;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .chatPageWrapper{
+        .chatWrapper{
+            .chatWindow{
+                height: 74%;
+                .messages{
+                    div{
+                        font-size: 0.8em;
+                        .createdAt{
+                            font-size: 0.4em;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

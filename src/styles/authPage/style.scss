@@ -81,7 +81,6 @@
                 font-size: 14px;
                 font-weight: 500;
                 font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
-
                 background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTgiIGhlaWdodD0iMTgiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGcgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj48cGF0aCBkPSJNMTcuNiA5LjJsLS4xLTEuOEg5djMuNGg0LjhDMTMuNiAxMiAxMyAxMyAxMiAxMy42djIuMmgzYTguOCA4LjggMCAwIDAgMi42LTYuNnoiIGZpbGw9IiM0Mjg1RjQiIGZpbGwtcnVsZT0ibm9uemVybyIvPjxwYXRoIGQ9Ik05IDE4YzIuNCAwIDQuNS0uOCA2LTIuMmwtMy0yLjJhNS40IDUuNCAwIDAgMS04LTIuOUgxVjEzYTkgOSAwIDAgMCA4IDV6IiBmaWxsPSIjMzRBODUzIiBmaWxsLXJ1bGU9Im5vbnplcm8iLz48cGF0aCBkPSJNNCAxMC43YTUuNCA1LjQgMCAwIDEgMC0zLjRWNUgxYTkgOSAwIDAgMCAwIDhsMy0yLjN6IiBmaWxsPSIjRkJCQzA1IiBmaWxsLXJ1bGU9Im5vbnplcm8iLz48cGF0aCBkPSJNOSAzLjZjMS4zIDAgMi41LjQgMy40IDEuM0wxNSAyLjNBOSA5IDAgMCAwIDEgNWwzIDIuNGE1LjQgNS40IDAgMCAxIDUtMy43eiIgZmlsbD0iI0VBNDMzNSIgZmlsbC1ydWxlPSJub256ZXJvIi8+PHBhdGggZD0iTTAgMGgxOHYxOEgweiIvPjwvZz48L3N2Zz4=);
                 background-color: white;
                 background-repeat: no-repeat;
@@ -121,5 +120,70 @@
         .isSign{
             justify-content: center;
         }
+    }
+}
+
+// Forgot Password Component
+.forgotPassword{
+    animation: showUp 1s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1em;
+    background: #ffffff;
+    padding: 2em 3em 2em 3em;
+    border-radius: 10px;
+    box-shadow: 0px 0px 8px 1px rgba(154, 154, 154, 0.75);
+    form{
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        input{
+            font-size: 1.2em;
+            padding: 8px 10px 8px 10px;
+            border-radius: 10px;
+            border: 1px solid gray;
+        }
+        .submit{
+            border: none;
+            background: rgb(109, 0, 109);
+            color: #ffffff;
+            letter-spacing: 1px;
+            font-weight: 600;
+            font-size: 1em;
+            height: 3em;
+            border-radius: 6px;
+            transition: 0.3s ease;
+            cursor: pointer;
+            &:hover{
+            background: rgb(86, 0, 86);
+            transition: 0.3s ease;
+            }
+        }
+    }
+    p{
+        color: blue;
+        font-size: 0.8em;
+        cursor: pointer;
+        &:hover{
+            text-decoration: underline;
+        }
+    }
+    .success{
+        color: rgb(76, 173, 76);
+        font-size: 0.8em;
+    }
+    .error{
+        color: rgb(210, 87, 87);
+        font-size: 0.8em;
+    }
+}
+
+@media only screen and (max-width: 450px) {
+    .authPageWrapper{
+        .signInContainer, .signUpContainer, .fogotPassword{
+            padding: 0.5em 1em 0.5em 1em;
+    }
     }
 }

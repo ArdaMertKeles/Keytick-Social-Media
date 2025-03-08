@@ -1,11 +1,11 @@
 import CheckIcon from '@mui/icons-material/Check';
 import ClearIcon from '@mui/icons-material/Clear';
-import { doc, updateDoc, arrayUnion, arrayRemove } from 'firebase/firestore';
+import { doc, updateDoc, arrayUnion, arrayRemove, addDoc, collection, Timestamp } from 'firebase/firestore';
 import { db } from '../../config/firebase';
 import { useNavigate } from 'react-router-dom';
 
 export const FriendRequest = ({ request, uid, userData, getUserFriends, getUserFriendRequests }) => {
-    
+
     const navigate = useNavigate()
 
     const acceptRequest = async () => {
@@ -33,6 +33,20 @@ export const FriendRequest = ({ request, uid, userData, getUserFriends, getUserF
                     username: userData.username
                 }),
             });
+            try {
+                await addDoc(collection(db, "notifications"), {
+                    username: userData.username,
+                    userPicture: userData.profilePicture,
+                    uid: userData.uid,
+                    friendUsername: request.username,
+                    friendPicture: request.profilePicture,
+                    friendUid: request.uid,
+                    content: 'friend',
+                    createdAt: Timestamp.now(),
+                });
+            } catch (error) {
+                console.error(error);
+            }
             getUserFriendRequests()
             getUserFriends()
         } catch (error) {

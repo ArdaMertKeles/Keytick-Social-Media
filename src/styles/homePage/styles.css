@@ -57,6 +57,9 @@ html {
 .header .leftContainer .searchDiv label svg {
   color: rgb(70, 70, 70);
 }
+.header .leftContainer .searchDiv button {
+  display: none;
+}
 .header .rightContainer {
   display: flex;
   align-items: center;
@@ -445,13 +448,22 @@ html {
     display: none;
   }
 }
-@media only screen and (max-width: 450px) {
+@media only screen and (max-width: 500px) {
   .header .leftContainer {
     width: 12%;
   }
   .header .leftContainer img {
-    width: 3.5em;
-    height: 2.5em;
+    width: 3em;
+    height: 2em;
+  }
+  .header .profileBox {
+    font-size: 0.8em;
+  }
+  .header a {
+    font-size: 0.7em;
+  }
+  .header svg {
+    font-size: 1.5em;
   }
 }
 @media only screen and (max-width: 400px) {
@@ -460,10 +472,6 @@ html {
   }
   .header .leftContainer {
     width: 9%;
-  }
-  .header .leftContainer img {
-    width: 3em;
-    height: 2em;
   }
   .createPostContainer {
     width: 95%;

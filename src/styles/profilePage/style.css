@@ -10,7 +10,8 @@
   width: 100%;
   gap: 1em;
 }
-.profilePageWrapper .main .noPosts {
+
+.noPosts {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -21,7 +22,7 @@
   width: 45%;
   border-radius: 8px;
 }
-.profilePageWrapper .main .noPosts svg {
+.noPosts svg {
   font-size: 1.2em;
 }
 
@@ -259,6 +260,9 @@
 }
 
 .friendsWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
   width: 45%;
 }
 .friendsWrapper .friendContainer {
@@ -275,6 +279,9 @@
   .friendsWrapper {
     width: 65%;
   }
+  .noPosts {
+    width: 65%;
+  }
 }
 @media only screen and (max-width: 800px) {
   .profileSection {
@@ -286,6 +293,9 @@
   .friendsWrapper {
     width: 80%;
   }
+  .noPosts {
+    width: 80%;
+  }
 }
 @media only screen and (max-width: 620px) {
   .profileSection {
@@ -295,6 +305,9 @@
     width: 90%;
   }
   .friendsWrapper {
+    width: 90%;
+  }
+  .noPosts {
     width: 90%;
   }
 }

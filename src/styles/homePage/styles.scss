@@ -62,6 +62,9 @@ html{
                 color: rgb(70, 70, 70);
                 }
             }
+            button{
+                display: none;
+            }
         }
     }
     .rightContainer{
@@ -459,14 +462,23 @@ html{
         }
     }
   }
-  @media only screen and (max-width: 450px) {
+  @media only screen and (max-width: 500px) {
     .header{
         .leftContainer{
             width: 12%;
             img{
-                width: 3.5em;
-                height: 2.5em;
+                width: 3em;
+                height: 2em;
             }
+        }
+        .profileBox{
+            font-size: 0.8em;
+        }
+        a{
+            font-size: 0.7em;
+        }
+        svg{
+            font-size: 1.5em;
         }
     }
   }
@@ -476,10 +488,6 @@ html{
         font-size: 0.8em;
         .leftContainer{
             width: 9%;
-            img{
-                width: 3em;
-                height: 2em;
-            }
         }
     }
     .createPostContainer{

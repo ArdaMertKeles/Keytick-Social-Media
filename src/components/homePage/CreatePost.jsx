@@ -38,25 +38,39 @@ export const CreatePost = ({ userData, getPosts }) => {
         setContent("");
         setSelectedImage(null);
         setDisabled(false)
-      };
+    };
 
     const sharePost = async (userId, content, imageBase64) => {
         try {
-          await addDoc(collection(db, "posts"), {
-            username: userData.username,
-            userPicture: userData.profilePicture,
-            userId,
-            content,
-            image: imageBase64,
-            likes: [],
-            comments: [],
-            createdAt: Timestamp.now(),
-          });
-          getPosts()
+            await addDoc(collection(db, "posts"), {
+                username: userData.username,
+                userPicture: userData.profilePicture,
+                userId,
+                content,
+                image: imageBase64,
+                likes: [],
+                comments: [],
+                createdAt: Timestamp.now(),
+            });
+            if (getPosts) {
+                getPosts()
+            }
+            try {
+                await addDoc(collection(db, "notifications"), {
+                    username: userData.username,
+                    userPicture: userData.profilePicture,
+                    userId,
+                    content: 'post',
+                    image: imageBase64,
+                    createdAt: Timestamp.now(),
+                });
+            } catch (error) {
+                console.error(error);
+            }
         } catch (error) {
-          console.error(error);
+            console.error(error);
         }
-      };
+    };
 
     return (
         <div className="createPostContainer">

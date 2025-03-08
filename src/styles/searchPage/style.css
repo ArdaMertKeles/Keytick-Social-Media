@@ -1,0 +1,55 @@
+.searchPageWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1em;
+}
+.searchPageWrapper .searchResults {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1em;
+  width: 30%;
+}
+.searchPageWrapper .searchResults .results {
+  font-weight: 700;
+  font-size: 2em;
+}
+
+.userCard {
+  display: flex;
+  width: 100%;
+  padding: 8px;
+  gap: 6px;
+  background-color: #F5F6F7;
+  border-radius: 8px;
+  transition: 0.2s ease;
+  cursor: pointer;
+}
+.userCard img {
+  width: 3.5em;
+  height: 3.5em;
+}
+.userCard .username {
+  color: #7f377f;
+  font-weight: 700;
+}
+.userCard .bio {
+  color: rgb(107, 107, 107);
+  font-size: 0.7em;
+}
+.userCard:hover {
+  background-color: #FFFFFF;
+  transition: 0.2s ease;
+}
+
+@media only screen and (max-width: 1000px) {
+  .searchPageWrapper .searchResults {
+    width: 50%;
+  }
+}
+@media only screen and (max-width: 800px) {
+  .searchPageWrapper .searchResults {
+    width: 75%;
+  }
+}/*# sourceMappingURL=style.css.map */

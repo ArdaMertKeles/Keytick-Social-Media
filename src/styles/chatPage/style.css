@@ -1,0 +1,193 @@
+.chatPageWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1em;
+}
+.chatPageWrapper .chatWrapper {
+  display: flex;
+  justify-content: center;
+  width: 80%;
+  height: 80vh;
+  gap: 6px;
+}
+
+.friendsList {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  background-color: #F5F6F7;
+  width: 22%;
+  height: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+  overflow-y: scroll;
+}
+.friendsList .friend input {
+  display: none;
+}
+.friendsList .friend label {
+  padding: 8px;
+  display: flex;
+  gap: 8px;
+  background-color: #f1eeee;
+  transition: 0.2s ease;
+  cursor: pointer;
+}
+.friendsList .friend label:hover {
+  transition: 0.2s ease;
+  background-color: #dbdbdb;
+}
+.friendsList .friend label img {
+  padding: 0;
+  width: 3.5em;
+  height: 3.5em;
+}
+.friendsList .friend label p {
+  font-size: 0.9em;
+  color: #7f377f;
+  font-weight: 700;
+}
+.friendsList .friend input[type=radio]:checked + label {
+  background-color: #d1d1d1;
+}
+.friendsList .friend p {
+  color: #5d0c5d;
+}
+
+.chatWindow {
+  display: flex;
+  flex-direction: column;
+  width: 65%;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.chatWindow .friendDetails {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background-color: #F5F6F8;
+}
+.chatWindow .friendDetails img {
+  padding: 5px;
+  width: 2em;
+  height: 2em;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.chatWindow .friendDetails p {
+  font-size: 0.9em;
+  color: #7f377f;
+  font-weight: 700;
+  cursor: pointer;
+}
+.chatWindow .messages {
+  background-color: #FFFFFF;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow-y: scroll;
+}
+.chatWindow .messages div {
+  border-radius: 8px;
+  min-width: 15%;
+  max-width: 40%;
+  overflow-wrap: break-word;
+  margin: 6px;
+  padding: 6px;
+}
+.chatWindow .messages div .createdAt {
+  color: rgb(208, 208, 208);
+  font-size: 0.5em;
+}
+.chatWindow .messages .sent {
+  align-self: flex-end;
+  background-color: #3543a8;
+  color: #FFFFFF;
+}
+.chatWindow .messages .received {
+  align-self: flex-start;
+  background-color: #7f377f;
+  color: #FFFFFF;
+}
+.chatWindow .sendMsg {
+  display: flex;
+  justify-content: center;
+  background-color: #F5F6F8;
+  width: 100%;
+  gap: 6px;
+}
+.chatWindow .sendMsg input {
+  padding: 6px;
+  border-radius: 8px;
+  width: 85%;
+  outline: none;
+  border: 1px solid gray;
+}
+.chatWindow .sendMsg button {
+  width: 14%;
+  outline: none;
+  border: 1px solid gray;
+  border-radius: 8px;
+  background-color: #7f377f;
+  color: #FFFFFF;
+  transition: 0.2s ease;
+  cursor: pointer;
+}
+.chatWindow .sendMsg button:hover {
+  background-color: #6a126a;
+  transition: 0.2s ease;
+}
+
+.selectChat {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 65%;
+  border-radius: 8px;
+  background-color: #F5F6F8;
+  font-size: 2em;
+  font-weight: 700;
+  color: #5d0c5d;
+}
+
+@media only screen and (max-width: 1000px) {
+  .chatPageWrapper .chatWrapper {
+    width: 95%;
+  }
+  .chatPageWrapper .chatWrapper .friendsList {
+    width: 30%;
+  }
+  .chatPageWrapper .chatWrapper .chatWindow {
+    width: 70%;
+  }
+}
+@media only screen and (max-width: 700px) {
+  .chatPageWrapper .chatWrapper {
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    height: 90vh;
+  }
+  .chatPageWrapper .chatWrapper .friendsList {
+    width: 90%;
+    height: 20%;
+    overflow-y: scroll;
+  }
+  .chatPageWrapper .chatWrapper .chatWindow {
+    width: 90%;
+    height: 70%;
+  }
+}
+@media only screen and (max-width: 500px) {
+  .chatPageWrapper .chatWrapper .chatWindow {
+    height: 74%;
+  }
+  .chatPageWrapper .chatWrapper .chatWindow .messages div {
+    font-size: 0.8em;
+  }
+  .chatPageWrapper .chatWrapper .chatWindow .messages div .createdAt {
+    font-size: 0.4em;
+  }
+}/*# sourceMappingURL=style.css.map */
