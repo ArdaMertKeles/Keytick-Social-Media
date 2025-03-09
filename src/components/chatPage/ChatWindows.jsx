@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { db } from "../../config/firebase";
-import { collection, addDoc, query, orderBy, onSnapshot } from "firebase/firestore";
+import { collection, addDoc, query, orderBy, onSnapshot, serverTimestamp } from "firebase/firestore";
 import { v4 as uuidv4 } from "uuid";
 import { formatDistanceToNow } from "date-fns";
 import { useNavigate } from "react-router-dom";
@@ -9,7 +9,7 @@ export const ChatWindow = ({ currentUser, selectedFriend }) => {
 
     const [messages, setMessages] = useState([]);
     const [newMessage, setNewMessage] = useState("");
-    
+
     const navigate = useNavigate()
 
     const chatId = [currentUser.uid, selectedFriend.uid].sort().join("_");
@@ -42,7 +42,7 @@ export const ChatWindow = ({ currentUser, selectedFriend }) => {
             await addDoc(collection(db, `chats/${chatId}/messages`), {
                 senderUid: currentUser.uid,
                 text: newMessage,
-                timestamp: new Date(),
+                timestamp: serverTimestamp(),
                 id: uuidv4()
             });
             setNewMessage("");
@@ -58,7 +58,11 @@ export const ChatWindow = ({ currentUser, selectedFriend }) => {
             <div className="messages">
                 {messages.map(msg => (
                     <div key={msg.id} className={msg.senderUid === currentUser.uid ? "sent" : "received"}>
-                        <p>{msg.text}</p> <p className="createdAt">{timeFormatter(msg.timestamp.seconds)}</p>
+                        <p>{msg.text}</p> <p className="createdAt">
+                            {msg.timestamp?.seconds
+                                ? timeFormatter(msg.timestamp.seconds)
+                                : "Sending..."}
+                        </p>
                     </div>
                 ))}
             </div>
