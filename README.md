@@ -1,70 +1,84 @@
-# Getting Started with Create React App
+# Social Media Web Application [Live Server](https://keytick.netlify.app/)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Welcome to my social media web application! This project allows users to connect with friends, share posts, and engage through likes, comments, and chat. The app is built using React.js, SCSS, and Firebase, providing a seamless and dynamic social experience.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+User Authentication: Sign up and log in securely using Firebase Authentication.
 
-### `npm start`
+Add Friends: Send and accept friend requests to build your social network.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Create Posts: Share your thoughts, photos, and emojis through posts.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Engage with Posts: Like and comment on posts from your friends.
 
-### `npm test`
+Real-time Chat: Chat with friends directly within the app.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Interactive Profiles: View and explore the profiles of your friends.
 
-### `npm run build`
+Responsive Design: Accessible on both desktop and mobile devices.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Technologies Used
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+React.js: For building the dynamic front-end and user interface.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+SCSS: For styling and creating a modern and responsive design.
 
-### `npm run eject`
+Firebase:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Firestore: For real-time database management.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Authentication: For user login and registration.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Storage: For storing user-uploaded images (using Base64 encoding).
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Screenshots
 
-## Learn More
+![Ekran görüntüsü 2025-03-09 030207](https://github.com/user-attachments/assets/b920a6f5-9a1b-4a5c-b4bc-11af43def4b1)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+![Ekran görüntüsü 2025-03-09 030252](https://github.com/user-attachments/assets/0b39f2ee-f125-4750-b214-72d2b7a54a7b)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+![Ekran görüntüsü 2025-03-09 030403](https://github.com/user-attachments/assets/552e1941-0b6f-4412-a829-a13d27da7da5)
 
-### Code Splitting
+[Ekran görüntüsü 2025-03-09 030500](https://github.com/user-attachments/assets/2c6239f5-5f74-4318-9b77-cdc86d443465)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+![Ekran görüntüsü 2025-03-09 030514](https://github.com/user-attachments/assets/920175db-e738-4dc0-975c-42be22d78ed1)
 
-### Analyzing the Bundle Size
+![Ekran görüntüsü 2025-03-09 030646](https://github.com/user-attachments/assets/f03db5d0-b186-46f5-89dc-b264bf7cf88b)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## Getting Started!
 
-### Making a Progressive Web App
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Clone the repository:
 
-### Advanced Configuration
+git clone https://github.com/your-username/your-repo.git
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+Install dependencies:
 
-### Deployment
+npm install
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+Set up Firebase:
 
-### `npm run build` fails to minify
+Create a Firebase project and add your web app.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Configure Firestore, Authentication, and Firebase Storage.
+
+Replace Firebase configuration in the project with your own.
+
+Run the application:
+
+npm start
+
+### Contributing
+
+Contributions are welcome! Feel free to submit issues, fork the repository, and create pull requests.
+
+### Acknowledgements
+
+React Documentation
+
+Firebase Documentation
+
+Open Source Libraries
+
+Thank you for checking out my project! I hope you enjoy using the app as much as I enjoyed building it.
