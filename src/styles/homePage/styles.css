@@ -36,6 +36,7 @@ html {
   width: 4em;
   height: 3em;
   border-radius: 10%;
+  cursor: pointer;
 }
 .header .leftContainer .searchDiv {
   position: relative;
