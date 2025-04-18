@@ -23,7 +23,7 @@ export const Header = ({ logo, userData }) => {
     return (
         <div className='header'>
             <div className='leftContainer'>
-                <img draggable='false' src={logo} alt="" />
+                <img draggable='false' src={logo} alt="" onClick={() => navigate('/')} />
                 <form className="searchDiv">
                     <input onChange={(e) => setSearchTerm(e.target.value)} type="text" id="search" placeholder="Search for users..." className="searchBar" />
                     <label htmlFor="search"><SearchIcon /></label>
